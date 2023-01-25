@@ -2,10 +2,10 @@
 <%@include file="frame/common.jsp" %>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Manitto | Main</title>
 </head>
 <body>
-main page
+<jsp:include page="frame/header.jsp" /><br>
+메인 페이지
 </body>
 </html>
