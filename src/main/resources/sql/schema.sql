@@ -64,4 +64,3 @@ create table comment
 
 show tables;
 
-
