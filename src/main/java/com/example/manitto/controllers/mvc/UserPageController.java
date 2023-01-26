@@ -3,8 +3,8 @@ package com.example.manitto.controllers.mvc;
 import com.example.manitto.common.LoginSessionManager;
 import com.example.manitto.dtos.Match;
 import com.example.manitto.dtos.User;
-import com.example.manitto.dtos.User.InfoDto;
 import com.example.manitto.services.MatchService;
+import com.example.manitto.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -25,8 +25,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequiredArgsConstructor
 public class UserPageController {
     private final LoginSessionManager loginSessionManager;
+
     private final MatchService matchService;
-    
+    private final UserService userService;
+
     @GetMapping("/login")
     public String loginPage() {
         return "login";
@@ -44,6 +46,16 @@ public class UserPageController {
         if (info.getIsAdmin()) return "admin";
         if (!info.getAwareRole()) return "role-check";
         return "main";
+
+    }
+    
+    @GetMapping("/userrev")
+    public ModelAndView getAllUserList(){
+    List<User.InfoDto> userList = userService.getAllUserList();
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("userList", userList);
+    mv.setViewName("admin/userrev");
+    return mv;
     }
 
 
@@ -63,7 +75,7 @@ public class UserPageController {
     @GetMapping("/match-detail")
     public ModelAndView matchDetail(HttpSession session) {
     		ModelAndView mv = new ModelAndView();
-    		User.InfoDto info = (InfoDto) session.getAttribute("info");
+    		User.InfoDto info = (User.InfoDto) session.getAttribute("info");
     	 	 
     		List<Match> dto = matchService.getMatchListActive();
     		String match1 = dto.get(0).getId().toString();

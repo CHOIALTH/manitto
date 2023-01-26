@@ -4,10 +4,6 @@ import com.example.manitto.dtos.Match;
 import com.example.manitto.services.MatchService;
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,5 +16,5 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/api/match")
 @RequiredArgsConstructor
 public class MatchApiController {
-    
+
 }

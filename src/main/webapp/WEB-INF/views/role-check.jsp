@@ -7,9 +7,13 @@
     <script src="<c:url value="/static/js/role-check.js"/>"></script>
 </head>
 <body>
+<<<<<<< HEAD
 <jsp:include page="frame/header.jsp"/>
 <div class="layout bg-bottom bg-no-repeat align-middle flex justify-center"
      style="">
+=======
+<jsp:include page="frame/header.jsp" /><br>
+>>>>>>> refs/heads/wonjun
 <h2>role check page</h2>
 <button id="check-btn">역할 확인 버튼</button>
 <div id="role-result">

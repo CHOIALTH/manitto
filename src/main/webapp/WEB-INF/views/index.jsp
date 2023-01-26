@@ -22,6 +22,7 @@
     </script>
 </head>
 <body>
+<<<<<<< HEAD
 <jsp:include page="frame/header.jsp"/>
 <div class="layout bg-bottom bg-no-repeat align-middle flex justify-center"
      style="background-image: url('http://nateonweb.nate.com/imgbbs/1/20160805/_20160805140340_%C7%D1%C1%A41.gif')">
@@ -38,6 +39,17 @@
     </div>
 </div>
 <jsp:include page="frame/footer.jsp"/>
+=======
+<jsp:include page="frame/header.jsp" /><br>
+<h2>시작페이지</h2>
+<c:if test="${ sessionScope.info == null }">
+    <a href="/user/login">로그인</a><br>
+    <a href="/user/register">회원가입</a>
+</c:if>
+<c:if test="${ sessionScope.info != null }">
+    <a href="/user/main">메인페이지</a><br>
+</c:if>
+>>>>>>> refs/heads/wonjun
 </body>
 
 </html>

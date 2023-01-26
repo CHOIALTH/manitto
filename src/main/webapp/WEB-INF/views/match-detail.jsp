@@ -8,6 +8,7 @@
     <title>Manitto | </title>
 </head>
 <body>
+<<<<<<< HEAD
 <jsp:include page="frame/header.jsp"/>
 <div class="layout bg-bottom bg-no-repeat align-middle flex justify-center"
      style="">
@@ -46,5 +47,9 @@
     
      
 <jsp:include page="frame/footer.jsp"/>
+=======
+<jsp:include page="frame/header.jsp" /><br>
+
+>>>>>>> refs/heads/wonjun
 </body>
 </html>

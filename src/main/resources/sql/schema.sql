@@ -18,6 +18,8 @@ create table user
     prev_receiver    boolean     default false  not null,
     is_admin         boolean     default false  not null
 );
+
+SELECT * FROM USER
 create table `match`
 (
     id        int primary key auto_increment,
@@ -62,5 +64,6 @@ create table comment
     constraint foreign key (match_id) references `match` (id)
 );
 
-show tables;
-
+show TABLES;
+DESC user;
+SELECT * FROM user;

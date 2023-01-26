@@ -11,6 +11,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -69,5 +70,11 @@ public class UserService {
         return userRepository.getAllUserList().stream().filter(user -> !user.getId().equals(loginSessionManager.getLoginUserInfo().getId()))
                 .map(user -> user.toInfoDto())
                 .toList();
+    }
+    
+    public List<User.InfoDto> getAllUserList() {
+    	 List<User.InfoDto> list = new ArrayList<>();
+    	 userRepository.getAllUserList().forEach(user -> list.add(user.toInfoDto()));
+    	 return list;
     }
 }
