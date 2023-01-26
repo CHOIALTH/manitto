@@ -39,4 +39,9 @@ public class UserPageController {
     public String matchList() {
         return "match-list";
     }
+    
+    @GetMapping("/guesswho")
+    public String guesswho() {
+    	return "guesswho";
+    }
 }

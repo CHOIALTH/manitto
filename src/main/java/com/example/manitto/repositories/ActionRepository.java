@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Created by jonghyeon on 2023/01/22,
+ * Created by jonghyeon on 2023/01/22, 
  * Package : com.example.manitto.repositories
  */
 @Repository
@@ -26,6 +26,8 @@ public interface ActionRepository {
     List<Action> getActionListByMatchIdAndType(@Param("matchId") long matchId, @Param("type") String type);
 
     List<Action> getActionByMatchIdAndTypeLimitDesc(@Param("matchId") long matchId, @Param("type") String type, @Param("limit") int limit);
-
+    
+    void updateAction(Action.UpdateDto updateDto);
+    
     void deleteAction(long id);
 }

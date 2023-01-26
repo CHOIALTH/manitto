@@ -63,5 +63,8 @@ create table comment
 );
 
 show tables;
-
+SELECT*FROM user;
+DESC user;
+SELECT*FROM match;
+SELECT*FROM user_match;
 
