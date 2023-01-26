@@ -4,10 +4,9 @@ import com.example.manitto.common.LoginSessionManager;
 import com.example.manitto.dtos.User;
 import com.example.manitto.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by jonghyeon on 2023/01/21,
@@ -36,5 +35,14 @@ public class UserApiController {
     public String getUserRole() {
         User.InfoDto info = loginSessionManager.getLoginUserInfo();
         return service.getUserRole(info.getId());
+    }
+    @GetMapping("/logout")
+    public void logout(){
+        loginSessionManager.removeLoginUserInfo();
+    }
+
+    @GetMapping("/list")
+    public List<User.InfoDto> getUserList(){
+        return service.getUserList();
     }
 }

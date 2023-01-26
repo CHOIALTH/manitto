@@ -1,6 +1,8 @@
 package com.example.manitto.dtos;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.sql.Timestamp;
 
@@ -24,46 +26,22 @@ public class UserMatch {
         this.matchId = matchId;
         this.isContributor = isContributor;
         this.isReceiver = isReceiver;
-
         instance = this;
     }
 
 
     public InfoDto toInfoDto() {
+        instance = this;
         return new InfoDto(id, userId, matchId, isContributor, isReceiver);
     }
-
-    public UpdateDto generateUpdateDto(UpdateDto to) {
-        UpdateDto from = UpdateDto.builder().build();
-        if (to.getIsContributor() != null) from.setIsContributor(to.getIsContributor());
-        if (to.getIsReceiver() != null) from.setIsReceiver(to.getIsReceiver());
-        return from;
-    }
-
-    public UpdateDto generateUpdateDto() {
-        return UpdateDto.builder().build();
-    }
-
 
     @Getter
     @RequiredArgsConstructor
     public static final class CreateDto {
         private final Long userId;
         private final Long matchId;
-    }
-
-    @Getter
-    @Setter
-    @Builder
-    @ToString
-    @AllArgsConstructor
-    public static class UpdateDto {
-        @lombok.Builder.Default
-        private Long id = instance.id;
-        @Builder.Default
-        private Boolean isContributor = instance.isContributor;
-        @Builder.Default
-        private Boolean isReceiver = instance.isReceiver;
+        private final Boolean isContributor;
+        private final Boolean isReceiver;
     }
 
     @Getter
@@ -86,10 +64,10 @@ public class UserMatch {
         private final String name;
         private final String randomName;
         private final String role;
-        private final String title;
         private final Timestamp matchYmd;
+        private final String title;
+        private final String status;
         private final Boolean result;
-        private final Boolean archived;
         private final Integer round;
     }
 }
